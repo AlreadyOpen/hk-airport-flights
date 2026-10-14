@@ -1,0 +1,3 @@
+[
+ {"name": "Hong Kong International Airport flight information", "owner": "Airport Authority Hong Kong", "url": "https://www.hongkongairport.com/flightinfo-rest/rest/flights/past", "licence": "https://data.gov.hk/en/terms-and-conditions", "docs": "https://data.gov.hk/en-data/dataset/aahk-team1-flight-info", "used_by": "live.py"}
+]
