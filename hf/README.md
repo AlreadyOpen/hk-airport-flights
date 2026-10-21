@@ -13,14 +13,14 @@ tags:
 # Hong Kong International Airport flights
 
 The flight information of Hong Kong International Airport (passenger and cargo, arrivals and departures), fetched every 15
-minutes by [AlreadyOpen/hk-airport-flights](https://github.com/AlreadyOpen/hk-airport-flights), with every snapshot kept: how
+minutes by [AlreadyOpen/hk-airport-flights](https://github.com/milleleaf/hk-airport-flights), with every snapshot kept: how
 each flight's status, time, gate, stand and belt changed through the day. Every source field is kept.
 
 The airport's API keeps only about 90 days and refuses requests from a browser origin, so this is also the copy a map can read.
 
 ## Files
 
-On the [bucket](https://huggingface.co/buckets/alreadyopen/hk-airport-flights) (CORS open):
+On the [bucket](https://huggingface.co/buckets/milleleaf/hk-airport-flights) (CORS open):
 
 | File | Holds |
 |---|---|
@@ -40,7 +40,7 @@ created once and never changed.
 | `fetched_at` | When this snapshot was fetched (Hong Kong time) |
 | `time` | Scheduled time, `HH:MM` |
 | `flight` | Every flight number: `[{no: 'CX 105', airline: 'CPA'}, ...]`, the operating flight first, then its codeshares |
-| `callsigns` | The operating flight as an ICAO callsign in both forms aircraft broadcast (`CPA089` and `CPA89`): joins the `flight` (callsign) of [AlreadyOpen/world-flights](https://huggingface.co/datasets/alreadyopen/world-flights) live aircraft |
+| `callsigns` | The operating flight as an ICAO callsign in both forms aircraft broadcast (`CPA089` and `CPA89`): joins the `flight` (callsign) of [AlreadyOpen/world-flights](https://huggingface.co/datasets/milleleaf/world-flights) live aircraft |
 | `status` | The status as published, for example `Dep 00:24`, `At gate 08:05 (12/10/2026)`, `Est at 09:15`, `Cancelled` |
 | `status_kind`, `status_at` | The status parsed: its words, and its time with the date it gives (else the flight's `date`) |
 | `statusCode` | As published (empty so far) |

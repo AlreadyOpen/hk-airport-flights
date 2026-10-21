@@ -17,8 +17,8 @@ Usage: python3 live.py   (python3 live.py test: parser self-test, no network)"""
 import datetime, json, os, re, sys, tempfile, urllib.request
 
 API = 'https://www.hongkongairport.com/flightinfo-rest/rest/flights/past?date={date}&lang=en&cargo={cargo}&arrival={arrival}'
-UA = {'User-Agent': 'AlreadyOpen hk-airport-flights (https://github.com/AlreadyOpen/hk-airport-flights)'}
-REPO = 'alreadyopen/hk-airport-flights'
+UA = {'User-Agent': 'AlreadyOpen hk-airport-flights (https://github.com/milleleaf/hk-airport-flights)'}
+REPO = 'milleleaf/hk-airport-flights'
 HKT = datetime.timezone(datetime.timedelta(hours=8))
 SOURCE = 'https://data.gov.hk/en-data/dataset/aahk-team1-flight-info'
 LICENCE = 'DATA.GOV.HK terms of use (https://data.gov.hk/en/terms-and-conditions), Airport Authority Hong Kong'

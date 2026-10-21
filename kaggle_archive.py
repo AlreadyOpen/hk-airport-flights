@@ -6,7 +6,7 @@ Needs HF_TOKEN and KAGGLE_API_TOKEN. Usage: python3 kaggle_archive.py      (self
 import datetime, json, os, re, subprocess, sys, tempfile, time
 import kaggle_mirror
 
-REPO = 'alreadyopen/hk-airport-flights'
+REPO = 'milleleaf/hk-airport-flights'
 HF_DAYS = 7
 DAY = re.compile(r'live/changes-(\d{4}-\d{2}-\d{2})\.parquet')
 HKT = datetime.timezone(datetime.timedelta(hours=8))
