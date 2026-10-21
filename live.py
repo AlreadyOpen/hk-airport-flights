@@ -9,7 +9,7 @@ Bucket:
 A row: every source field (time, flight, status, statusCode, origin or destination, terminal, aisle, gate, baggage, hall,
 stand; any field the API adds later goes in `extra`), plus date (the flight's day), requested (the day asked for: the API also
 returns the previous day's late flights), arrival, cargo, fetched_at, callsigns (the operating, first, flight as an ICAO
-callsign in both forms adsb.lol uses: CPA089 and CPA89, to join AlreadyOpen/world-flights' `flight`) and the status parsed:
+callsign in both forms adsb.lol uses: CPA089 and CPA89, to join milleleaf/world-flights' `flight`) and the status parsed:
 status_kind ('Dep', 'At gate', 'Est at', 'Landed', 'Cancelled', 'Boarding', ...) and status_at (its time, with the date the
 status gives, else the flight's date). kaggle_archive.py archives each complete day and keeps HF_DAYS on the bucket.
 On any error the run is skipped (a warning, exit 0): no retry loop. Needs HF_TOKEN.
@@ -17,7 +17,7 @@ Usage: python3 live.py   (python3 live.py test: parser self-test, no network)"""
 import datetime, json, os, re, sys, tempfile, urllib.request
 
 API = 'https://www.hongkongairport.com/flightinfo-rest/rest/flights/past?date={date}&lang=en&cargo={cargo}&arrival={arrival}'
-UA = {'User-Agent': 'AlreadyOpen hk-airport-flights (https://github.com/milleleaf/hk-airport-flights)'}
+UA = {'User-Agent': 'Milleleaf hk-airport-flights (https://github.com/milleleaf/hk-airport-flights)'}
 REPO = 'milleleaf/hk-airport-flights'
 HKT = datetime.timezone(datetime.timedelta(hours=8))
 SOURCE = 'https://data.gov.hk/en-data/dataset/aahk-team1-flight-info'

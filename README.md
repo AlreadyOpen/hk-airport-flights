@@ -1,10 +1,10 @@
 # hk-airport-flights
 
-An [AlreadyOpen](https://github.com/milleleaf) pipeline: Hong Kong International Airport's flight information (Airport
+An [Milleleaf](https://github.com/milleleaf) pipeline: Hong Kong International Airport's flight information (Airport
 Authority Hong Kong, [DATA.GOV.HK](https://data.gov.hk/en-data/dataset/aahk-team1-flight-info), DATA.GOV.HK terms of use) every
 15 minutes, every snapshot kept, published to a Hugging Face [bucket](https://huggingface.co/buckets/milleleaf/hk-airport-flights)
 (`live/`, the last 7 days) and archived on Kaggle, one dataset per Hong Kong day. Its `callsigns` column joins the live aircraft of
-[AlreadyOpen/world-flights](https://github.com/milleleaf/world-flights); the two are separate datasets because their licences
+[milleleaf/world-flights](https://github.com/milleleaf/world-flights); the two are separate datasets because their licences
 differ (ODbL there). Files and columns: `hf/README.md`.
 
     python3 live.py             # one snapshot: live/flights.json and today's live/changes-<D>.parquet (HF_TOKEN); every 15 min in live.yml

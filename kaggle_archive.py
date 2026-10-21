@@ -1,6 +1,6 @@
 """The archive: every complete Hong Kong day of live/changes-YYYY-MM-DD.parquet as its own public Kaggle dataset,
 helenkwok/hk-airport-flights-YYYY-MM-DD, created once and never versioned or deleted (Kaggle public storage is free; the
-precedent is AlreadyOpen/world-flights' one dataset per day). A day leaves the bucket only when it is older than HF_DAYS and
+precedent is milleleaf/world-flights' one dataset per day). A day leaves the bucket only when it is older than HF_DAYS and
 `kaggle datasets files` lists it. Also refreshes the Hugging Face dataset card (hf/README.md). Runs daily in archive.yml.
 Needs HF_TOKEN and KAGGLE_API_TOKEN. Usage: python3 kaggle_archive.py      (self-test, no network: python3 kaggle_archive.py test)"""
 import datetime, json, os, re, subprocess, sys, tempfile, time
@@ -40,7 +40,7 @@ def main():
                 print(f'::warning::{s} exists but does not list {p}: kept on the bucket, check by hand'); continue
             with tempfile.TemporaryDirectory() as root:
                 download_bucket_files(REPO, [(p, os.path.join(root, p))])
-                kaggle_mirror.mirror(s, f'AlreadyOpen: HK airport flights {day}', root, [p])
+                kaggle_mirror.mirror(s, f'Milleleaf: HK airport flights {day}', root, [p])
             for _ in range(30):                                        # Kaggle processes an upload before listing its files
                 if listed(s, day): break
                 time.sleep(60)
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         p = ['live/flights.json'] + [f'live/changes-2026-10-{d:02d}.parquet' for d in range(1, 16)]
         days, drop = plan(p, '2026-10-15')
         assert days == [f'2026-10-{d:02d}' for d in range(1, 15)] and drop == [f'2026-10-{d:02d}' for d in range(1, 8)], (days, drop)
-        assert 6 <= len('AlreadyOpen: HK airport flights 2026-10-15') <= 50
+        assert 6 <= len('Milleleaf: HK airport flights 2026-10-15') <= 50
         print('kaggle_archive: self-test ok')
     else:
         main()
